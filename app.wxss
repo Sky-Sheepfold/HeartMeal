@@ -33,7 +33,7 @@ button::after {
 
 .hm-page {
   min-height: 100vh;
-  padding: 28rpx 24rpx 180rpx;
+  padding: 24rpx 24rpx 180rpx;
   background: #f8f8f8;
 }
 
@@ -45,9 +45,9 @@ button::after {
 }
 
 .hm-page-title {
-  font-size: 40rpx;
+  font-size: 42rpx;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 800;
   color: #333333;
 }
 
@@ -61,7 +61,8 @@ button::after {
 .hm-card {
   background: #ffffff;
   border-radius: 24rpx;
-  box-shadow: 0 12rpx 32rpx rgba(32, 18, 22, 0.06);
+  border: 1rpx solid rgba(238, 238, 238, 0.9);
+  box-shadow: 0 8rpx 24rpx rgba(38, 24, 28, 0.04);
 }
 
 .hm-primary-button {
@@ -77,6 +78,12 @@ button::after {
   font-weight: 700;
 }
 
+.hm-primary-button[disabled],
+.hm-primary-button.is-disabled {
+  background: #eeeeee;
+  color: #aaaaaa;
+}
+
 .hm-secondary-button {
   height: 76rpx;
   padding: 0 30rpx;
@@ -88,6 +95,20 @@ button::after {
   color: #ff5f86;
   font-size: 26rpx;
   font-weight: 600;
+}
+
+.hm-ghost-button {
+  height: 64rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #ffffff;
+  color: #666666;
+  font-size: 24rpx;
+  font-weight: 700;
+  border: 1rpx solid #eeeeee;
 }
 
 .button-hover {
@@ -105,15 +126,15 @@ button::after {
 }
 
 .empty-mark {
-  width: 136rpx;
-  height: 136rpx;
+  width: 120rpx;
+  height: 120rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 40rpx;
+  border-radius: 36rpx;
   background: #fff0f4;
   color: #ff7f9f;
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-weight: 700;
 }
 

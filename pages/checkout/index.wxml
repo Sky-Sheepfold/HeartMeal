@@ -1,4 +1,4 @@
-<navigation-bar title="确认点餐" color="#333333" background="#ffffff"></navigation-bar>
+<navigation-bar title="确认点餐" color="#333333" background="#f8f8f8"></navigation-bar>
 
 <scroll-view class="page-scroll" scroll-y type="list">
   <view class="hm-page checkout-page">
@@ -32,12 +32,28 @@
 
       <view class="section-card hm-card">
         <view class="section-title">用餐人数</view>
-        <picker mode="selector" range="{{peopleOptions}}" value="{{peopleIndex}}" bindchange="onPeopleChange">
-          <view class="people-picker">
-            <text>{{peopleCount}} 人</text>
-            <text class="picker-arrow">更改</text>
+        <view class="people-stepper">
+          <button
+            class="people-button {{peopleCount <= 1 ? 'is-disabled' : ''}}"
+            disabled="{{peopleCount <= 1}}"
+            bindtap="decreasePeople"
+            hover-class="button-hover"
+          >
+            −
+          </button>
+          <view class="people-value">
+            <text>{{peopleCount}}</text>
+            <text>人</text>
           </view>
-        </picker>
+          <button
+            class="people-button is-plus {{peopleCount >= 8 ? 'is-disabled' : ''}}"
+            disabled="{{peopleCount >= 8}}"
+            bindtap="increasePeople"
+            hover-class="button-hover"
+          >
+            +
+          </button>
+        </view>
       </view>
 
       <view class="section-card hm-card">
@@ -56,6 +72,11 @@
         </view>
       </view>
 
+      <view class="preference-card hm-card">
+        <view class="preference-title">口味提醒</view>
+        <view class="preference-desc">可以在备注里写下 TA 的口味，比如少辣、不吃香菜。</view>
+      </view>
+
       <view class="section-card hm-card">
         <view class="section-title">情侣备注</view>
         <textarea
@@ -65,6 +86,18 @@
           placeholder="比如：少辣，不要香菜，今天想吃甜一点～"
           bindinput="onRemarkInput"
         ></textarea>
+        <view class="quick-remarks">
+          <block wx:for="{{quickRemarks}}" wx:key="*this">
+            <button
+              class="quick-chip"
+              data-text="{{item}}"
+              bindtap="addQuickRemark"
+              hover-class="button-hover"
+            >
+              {{item}}
+            </button>
+          </block>
+        </view>
       </view>
 
       <view class="summary-card hm-card">
@@ -82,14 +115,21 @@
         </view>
       </view>
 
-      <button
-        class="hm-primary-button submit-button"
-        bindtap="submitOrder"
-        loading="{{submitting}}"
-        hover-class="button-hover"
-      >
-        确认下单
-      </button>
     </block>
   </view>
 </scroll-view>
+
+<view wx:if="{{!isEmpty}}" class="checkout-submit-bar">
+  <view class="submit-total">
+    <view class="submit-label">合计</view>
+    <view class="submit-price">¥{{totalPrice}}</view>
+  </view>
+  <button
+    class="hm-primary-button submit-button"
+    bindtap="submitOrder"
+    loading="{{submitting}}"
+    hover-class="button-hover"
+  >
+    确认下单
+  </button>
+</view>

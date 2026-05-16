@@ -17,11 +17,10 @@ Page({
     totalCount: 0,
     totalPrice: 0,
     isEmpty: true,
-    peopleOptions: [1, 2, 3, 4],
-    peopleIndex: 1,
     peopleCount: 2,
     payerOptions: ['我请客', 'TA 请客', 'AA', '下次再说'],
-    payer: '我请客',
+    payer: 'AA',
+    quickRemarks: ['少辣', '不要香菜', '今天我请客'],
     remark: '',
     submitting: false
   },
@@ -44,11 +43,23 @@ Page({
     })
   },
 
-  onPeopleChange(event) {
-    const peopleIndex = Number(event.detail.value)
+  decreasePeople() {
+    if (this.data.peopleCount <= 1) {
+      return
+    }
+
     this.setData({
-      peopleIndex,
-      peopleCount: this.data.peopleOptions[peopleIndex]
+      peopleCount: this.data.peopleCount - 1
+    })
+  },
+
+  increasePeople() {
+    if (this.data.peopleCount >= 8) {
+      return
+    }
+
+    this.setData({
+      peopleCount: this.data.peopleCount + 1
     })
   },
 
@@ -61,6 +72,16 @@ Page({
   onRemarkInput(event) {
     this.setData({
       remark: event.detail.value
+    })
+  },
+
+  addQuickRemark(event) {
+    const text = event.currentTarget.dataset.text
+    const current = this.data.remark.trim()
+    const nextRemark = current ? `${current}，${text}` : text
+
+    this.setData({
+      remark: nextRemark.slice(0, 120)
     })
   },
 

@@ -1,12 +1,32 @@
-const { saveCart } = require('../../utils/cart')
+const { getCart, saveCart } = require('../../utils/cart')
 const {
   getOrders,
   clearOrders: clearOrdersStorage
 } = require('../../utils/order')
 
+function mergeCartItems(currentCart, orderItems) {
+  const nextCart = (currentCart || []).map((item) => Object.assign({}, item))
+  const sourceItems = orderItems || []
+
+  sourceItems.forEach((dish) => {
+    const existed = nextCart.find((item) => item.dishId === dish.dishId)
+
+    if (existed) {
+      existed.count += dish.count
+      return
+    }
+
+    nextCart.push(Object.assign({}, dish))
+  })
+
+  return nextCart
+}
+
 Page({
   data: {
     orders: [],
+    orderCount: 0,
+    latestOrderTime: '',
     isEmpty: true
   },
 
@@ -19,10 +39,20 @@ Page({
       items: (order.items || []).map((dish) => Object.assign({}, dish, {
         lineTotal: Number((dish.price * dish.count).toFixed(2))
       }))
-    }))
+    })).map((order) => {
+      const itemCount = order.items.reduce((sum, dish) => sum + dish.count, 0)
+
+      return Object.assign({}, order, {
+        itemCount,
+        previewItems: order.items.slice(0, 3),
+        extraCount: Math.max(order.items.length - 3, 0)
+      })
+    })
 
     this.setData({
       orders,
+      orderCount: orders.length,
+      latestOrderTime: orders.length > 0 ? orders[0].createTime : '',
       isEmpty: orders.length === 0
     })
   },
@@ -62,9 +92,9 @@ Page({
       return
     }
 
-    saveCart(order.items)
+    saveCart(mergeCartItems(getCart(), order.items))
     wx.showToast({
-      title: '已放回餐桌',
+      title: '已放回你们的餐桌',
       icon: 'none',
       duration: 700
     })

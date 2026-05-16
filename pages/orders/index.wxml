@@ -1,4 +1,4 @@
-<navigation-bar title="一起吃过" color="#333333" background="#ffffff"></navigation-bar>
+<navigation-bar title="一起吃过" color="#333333" background="#f8f8f8"></navigation-bar>
 
 <scroll-view class="page-scroll" scroll-y type="list">
   <view class="hm-page orders-page">
@@ -27,6 +27,18 @@
     </block>
 
     <block wx:else>
+      <view class="orders-summary hm-card">
+        <view class="summary-cell">
+          <view class="summary-label">一起吃过</view>
+          <view class="summary-value">{{orderCount}} 次</view>
+        </view>
+        <view class="summary-divider"></view>
+        <view class="summary-cell">
+          <view class="summary-label">最近一餐</view>
+          <view class="summary-value small">{{latestOrderTime}}</view>
+        </view>
+      </view>
+
       <view class="order-list">
         <block wx:for="{{orders}}" wx:key="orderId" wx:for-item="order">
           <view class="order-card hm-card">
@@ -39,19 +51,22 @@
             </view>
 
             <view class="order-items">
-              <block wx:for="{{order.items}}" wx:key="dishId" wx:for-item="dish">
+              <block wx:for="{{order.previewItems}}" wx:key="dishId" wx:for-item="dish">
                 <view class="order-item">
                   <text>{{dish.name}} x{{dish.count}}</text>
                   <text>¥{{dish.lineTotal}}</text>
                 </view>
               </block>
+              <view wx:if="{{order.extraCount > 0}}" class="order-more">
+                还有 {{order.extraCount}} 道菜
+              </view>
             </view>
 
             <view wx:if="{{order.remark}}" class="order-remark">备注：{{order.remark}}</view>
 
             <view class="order-bottom">
               <view>
-                <view class="payer">{{order.payer}} · {{order.peopleCount}} 人</view>
+                <view class="payer">{{order.payer}} · {{order.peopleCount}} 人 · {{order.itemCount}} 件</view>
                 <view class="order-total">¥{{order.totalPrice}}</view>
               </view>
               <button

@@ -1,19 +1,26 @@
-<navigation-bar title="情侣餐桌" back="{{false}}" color="#333333" background="#fff5f7"></navigation-bar>
+<navigation-bar title="情侣餐桌" back="{{false}}" color="#333333" background="#f8f8f8"></navigation-bar>
 
 <scroll-view class="page-scroll" scroll-y type="list">
   <view class="hm-page index-page">
-    <view class="hero">
-      <view class="hero-copy">
-        <view class="hero-kicker">HeartMeal</view>
+    <view class="menu-head">
+      <view class="menu-copy">
+        <view class="menu-kicker">HeartMeal</view>
         <view class="hm-page-title">今天想和 TA 吃点什么？</view>
-        <view class="hm-page-subtitle">两个人的快乐菜单，甜甜的一餐从这里开始</view>
+        <view class="hm-page-subtitle">先挑几道喜欢的，再慢慢决定谁请客。</view>
       </view>
-      <view class="hero-token">2 人餐桌</view>
+      <view class="taste-entry">2人</view>
     </view>
 
-    <view class="banner hm-card">
-      <view class="banner-title">两个人的快乐菜单</view>
-      <view class="banner-desc">从推荐菜开始，也可以按主食、小吃、饮品慢慢挑。</view>
+    <view class="menu-brief hm-card">
+      <view class="brief-block">
+        <view class="brief-label">默认</view>
+        <view class="brief-value">2 人餐桌</view>
+      </view>
+      <view class="brief-line"></view>
+      <view class="brief-block">
+        <view class="brief-label">今日</view>
+        <view class="brief-value">情侣推荐</view>
+      </view>
     </view>
 
     <scroll-view class="category-tabs" scroll-x enable-flex>
@@ -30,7 +37,7 @@
 
     <view class="dish-list">
       <block wx:for="{{dishList}}" wx:key="id" wx:for-item="dish">
-        <view class="dish-card hm-card">
+        <view class="dish-card hm-card {{dish.stock ? '' : 'is-soldout'}}">
           <view class="dish-cover {{dish.tone}}">
             <text>{{dish.cover}}</text>
           </view>
@@ -47,15 +54,34 @@
             </view>
             <view class="dish-bottom">
               <view class="dish-price">¥{{dish.price}}</view>
-              <view class="dish-actions">
-                <text wx:if="{{dish.count > 0}}" class="dish-count">x{{dish.count}}</text>
+              <view wx:if="{{dish.count > 0}}" class="dish-stepper">
                 <button
-                  class="add-button"
+                  class="stepper-button"
+                  data-id="{{dish.id}}"
+                  bindtap="decreaseFromMenu"
+                  hover-class="button-hover"
+                >
+                  −
+                </button>
+                <text class="stepper-value">{{dish.count}}</text>
+                <button
+                  class="stepper-button is-plus"
                   data-id="{{dish.id}}"
                   bindtap="addToCart"
                   hover-class="button-hover"
                 >
                   +
+                </button>
+              </view>
+              <view wx:else class="dish-actions">
+                <button
+                  class="add-button"
+                  data-id="{{dish.id}}"
+                  bindtap="addToCart"
+                  disabled="{{!dish.stock}}"
+                  hover-class="button-hover"
+                >
+                  {{dish.stock ? '+' : '售罄'}}
                 </button>
               </view>
             </view>
@@ -66,13 +92,19 @@
   </view>
 </scroll-view>
 
-<view class="cart-bar {{totalCount > 0 ? 'is-ready' : ''}}">
+<view class="cart-bar {{totalCount > 0 ? 'is-ready' : 'is-empty'}}">
   <view class="cart-summary" bindtap="goCart">
-    <view class="cart-mark">餐桌</view>
+    <view class="cart-mark">{{totalCount > 0 ? totalCount : '餐桌'}}</view>
     <view class="cart-copy">
       <view class="cart-title">{{cartText}}</view>
       <view class="cart-desc">{{cartDesc}}</view>
     </view>
   </view>
-  <button class="cart-action" bindtap="goCheckout" hover-class="button-hover">去结算</button>
+  <button
+    class="cart-action {{totalCount > 0 ? '' : 'is-disabled'}}"
+    bindtap="goCheckout"
+    hover-class="button-hover"
+  >
+    {{totalCount > 0 ? '去结算' : '先点餐'}}
+  </button>
 </view>

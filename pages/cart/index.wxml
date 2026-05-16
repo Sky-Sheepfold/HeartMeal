@@ -1,10 +1,10 @@
-<navigation-bar title="我的餐桌" color="#333333" background="#ffffff"></navigation-bar>
+<navigation-bar title="我们的餐桌" color="#333333" background="#f8f8f8"></navigation-bar>
 
 <scroll-view class="page-scroll" scroll-y type="list">
   <view class="hm-page cart-page">
     <view class="cart-header">
       <view>
-        <view class="hm-page-title">我的餐桌</view>
+        <view class="hm-page-title">我们的餐桌</view>
         <view class="hm-page-subtitle">看看你们选了哪些好吃的</view>
       </view>
       <button
@@ -27,6 +27,18 @@
     </block>
 
     <block wx:else>
+      <view class="cart-stats hm-card">
+        <view class="stat-item">
+          <view class="stat-label">已选</view>
+          <view class="stat-value">{{totalCount}} 件</view>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <view class="stat-label">合计</view>
+          <view class="stat-value price">¥{{totalPrice}}</view>
+        </view>
+      </view>
+
       <view class="cart-list">
         <block wx:for="{{cartList}}" wx:key="dishId" wx:for-item="dish">
           <view class="cart-card hm-card">
@@ -44,7 +56,7 @@
                   删除
                 </button>
               </view>
-              <view class="cart-price">¥{{dish.price}} / 份</view>
+              <view class="cart-price">单价 ¥{{dish.price}} / 份</view>
               <view class="cart-bottom">
                 <view class="line-total">小计 ¥{{dish.lineTotal}}</view>
                 <view class="quantity-control">
@@ -72,7 +84,10 @@
         </block>
       </view>
 
-      <view class="taste-tip hm-card">小提示：记得看看 TA 的口味哦～</view>
+      <view class="taste-tip hm-card">
+        <view class="taste-title">口味提醒</view>
+        <view class="taste-desc">下单前可以在备注里写下 TA 的口味，比如少辣、不吃香菜。</view>
+      </view>
     </block>
   </view>
 </scroll-view>

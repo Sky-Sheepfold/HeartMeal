@@ -18,13 +18,51 @@
   justify-content: center;
   border-radius: 999rpx;
   background: #fff0f4;
-  color: #ff5f86;
+  color: #ff7f9f;
   font-size: 24rpx;
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.orders-summary {
+  margin-top: 26rpx;
+  padding: 24rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22rpx;
+}
+
+.summary-cell {
+  flex: 1;
+  min-width: 0;
+}
+
+.summary-label {
+  color: #888888;
+  font-size: 23rpx;
+}
+
+.summary-value {
+  margin-top: 8rpx;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.summary-value.small {
+  font-size: 25rpx;
+  line-height: 1.35;
+}
+
+.summary-divider {
+  width: 1rpx;
+  height: 58rpx;
+  flex: none;
+  background: #eeeeee;
 }
 
 .order-list {
-  margin-top: 28rpx;
+  margin-top: 24rpx;
 }
 
 .order-card {
@@ -42,7 +80,7 @@
 .order-time {
   color: #333333;
   font-size: 28rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .order-id {
@@ -56,9 +94,9 @@
   padding: 8rpx 16rpx;
   border-radius: 999rpx;
   background: #fff0f4;
-  color: #ff5f86;
+  color: #ff7f9f;
   font-size: 22rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .order-items {
@@ -78,12 +116,18 @@
   font-size: 25rpx;
 }
 
+.order-more {
+  margin-top: 8rpx;
+  color: #888888;
+  font-size: 24rpx;
+}
+
 .order-remark {
   margin-top: 18rpx;
   padding: 18rpx 20rpx;
   border-radius: 18rpx;
-  background: #fff5f7;
-  color: #ff5f86;
+  background: #fff0f4;
+  color: #ff7f9f;
   font-size: 24rpx;
   line-height: 1.5;
 }
@@ -103,9 +147,9 @@
 
 .order-total {
   margin-top: 6rpx;
-  color: #ff6b6b;
+  color: #ff8a3d;
   font-size: 38rpx;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .reorder-button {

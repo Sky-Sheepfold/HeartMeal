@@ -2,6 +2,7 @@ const { categories, menuList } = require('../../data/menu')
 const {
   getCart,
   addDishToCart,
+  updateCartItemCount,
   calcTotalCount,
   calcTotalPrice
 } = require('../../utils/cart')
@@ -104,6 +105,23 @@ Page({
     wx.showToast({
       title: '已加入你们的餐桌',
       icon: 'none'
+    })
+  },
+
+  decreaseFromMenu(event) {
+    const dishId = Number(event.currentTarget.dataset.id)
+    const cartList = updateCartItemCount(dishId, -1, this.data.cartList)
+    const totalCount = calcTotalCount(cartList)
+    const totalPrice = calcTotalPrice(cartList)
+
+    this.setData({
+      cartList,
+      totalCount,
+      totalPrice,
+      cartText: totalCount > 0 ? `已选 ${totalCount} 件` : '餐桌还是空的',
+      cartDesc: totalCount > 0 ? `合计 ¥${totalPrice}` : '挑几道你们爱吃的吧'
+    }, () => {
+      this.updateDishList()
     })
   },
 

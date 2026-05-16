@@ -18,13 +18,50 @@
   justify-content: center;
   border-radius: 999rpx;
   background: #fff0f4;
-  color: #ff5f86;
+  color: #ff7f9f;
   font-size: 24rpx;
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.cart-stats {
+  margin-top: 26rpx;
+  padding: 24rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22rpx;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-label {
+  color: #888888;
+  font-size: 23rpx;
+}
+
+.stat-value {
+  margin-top: 8rpx;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.stat-value.price {
+  color: #ff8a3d;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 58rpx;
+  flex: none;
+  background: #eeeeee;
 }
 
 .cart-list {
-  margin-top: 28rpx;
+  margin-top: 24rpx;
 }
 
 .cart-card {
@@ -35,8 +72,8 @@
 }
 
 .cart-cover {
-  width: 128rpx;
-  height: 128rpx;
+  width: 126rpx;
+  height: 126rpx;
   flex: none;
   display: flex;
   align-items: center;
@@ -48,35 +85,35 @@
 }
 
 .cart-cover.coral {
-  background: linear-gradient(135deg, #ff8d76, #ff5f86);
+  background: linear-gradient(135deg, #f87565, #ff9f7a);
 }
 
 .cart-cover.amber {
-  background: linear-gradient(135deg, #ffbd72, #ff8a3d);
+  background: linear-gradient(135deg, #f0a33a, #ffcf7a);
 }
 
 .cart-cover.rose {
-  background: linear-gradient(135deg, #ff9db5, #ff6f9d);
+  background: linear-gradient(135deg, #ff7f9f, #f6a2b7);
 }
 
 .cart-cover.sun {
-  background: linear-gradient(135deg, #ffd66e, #ffa447);
+  background: linear-gradient(135deg, #ffc24d, #f28d4f);
 }
 
 .cart-cover.moss {
-  background: linear-gradient(135deg, #9ccf9b, #5f9f78);
+  background: linear-gradient(135deg, #6fae7c, #a6cf8c);
 }
 
 .cart-cover.berry {
-  background: linear-gradient(135deg, #d98cff, #ff7f9f);
+  background: linear-gradient(135deg, #8b6fd6, #ff7f9f);
 }
 
 .cart-cover.mint {
-  background: linear-gradient(135deg, #8bd8c1, #54b6a0);
+  background: linear-gradient(135deg, #56b89f, #8ed4c2);
 }
 
 .cart-cover.cream {
-  background: linear-gradient(135deg, #ffc983, #ff9f6e);
+  background: linear-gradient(135deg, #e5a14f, #ffc989);
 }
 
 .cart-info {
@@ -96,13 +133,22 @@
   min-width: 0;
   color: #333333;
   font-size: 31rpx;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .remove-button {
   flex: none;
-  color: #aaaaaa;
-  font-size: 24rpx;
+  min-width: 72rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #f8f8f8;
+  color: #888888;
+  font-size: 23rpx;
+  font-weight: 700;
 }
 
 .cart-price {
@@ -120,9 +166,9 @@
 }
 
 .line-total {
-  color: #ff6b6b;
+  color: #ff8a3d;
   font-size: 28rpx;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .quantity-control {
@@ -131,7 +177,7 @@
   display: flex;
   align-items: center;
   border-radius: 999rpx;
-  background: #fff5f7;
+  background: #fff0f4;
   overflow: hidden;
 }
 
@@ -141,9 +187,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff5f86;
+  color: #ff7f9f;
   font-size: 34rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .quantity-button.is-plus {
@@ -156,14 +202,26 @@
   text-align: center;
   color: #333333;
   font-size: 27rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .taste-tip {
   margin-top: 24rpx;
   padding: 24rpx 28rpx;
-  color: #ff5f86;
-  font-size: 26rpx;
+  background: #fff0f4;
+  border-color: rgba(255, 127, 159, 0.18);
+}
+
+.taste-title {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.taste-desc {
+  margin-top: 8rpx;
+  color: #888888;
+  font-size: 25rpx;
   line-height: 1.5;
 }
 
@@ -178,9 +236,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 22rpx;
-  border-radius: 32rpx;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 16rpx 48rpx rgba(32, 18, 22, 0.14);
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1rpx solid rgba(238, 238, 238, 0.92);
+  box-shadow: 0 16rpx 44rpx rgba(38, 24, 28, 0.12);
   z-index: 20;
 }
 
@@ -196,9 +255,9 @@
 
 .total-price {
   margin-top: 6rpx;
-  color: #ff6b6b;
+  color: #ff8a3d;
   font-size: 38rpx;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .total-button {

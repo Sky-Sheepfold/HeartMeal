@@ -8,6 +8,7 @@ build/
 .temp/
 .taro/
 .cache/
+.swc/
 
 # Logs
 logs/

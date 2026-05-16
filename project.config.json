@@ -1,4 +1,7 @@
 {
+  "miniprogramRoot": "dist/",
+  "projectname": "HeartMeal",
+  "description": "HeartMeal Taro React 微信小程序",
   "setting": {
     "es6": true,
     "postcss": true,

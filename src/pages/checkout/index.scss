@@ -1,0 +1,243 @@
+.checkout-page {
+  padding-bottom: 196rpx;
+}
+
+.checkout-header {
+  margin-bottom: 28rpx;
+}
+
+.section-card,
+.summary-card,
+.preference-card {
+  margin-bottom: 20rpx;
+  padding: 26rpx 28rpx;
+}
+
+.section-title {
+  margin-bottom: 22rpx;
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.checkout-item {
+  min-height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.checkout-item + .checkout-item {
+  border-top: 1rpx solid #eeeeee;
+}
+
+.checkout-item-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.checkout-name {
+  color: #333333;
+  font-size: 27rpx;
+  font-weight: 700;
+}
+
+.checkout-count {
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.checkout-line-total {
+  flex: none;
+  color: #ff8a3d;
+  font-size: 27rpx;
+  font-weight: 900;
+}
+
+.people-stepper {
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 22rpx;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.people-button {
+  width: 86rpx;
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff7f9f;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.people-button.is-plus {
+  background: #ff7f9f;
+  color: #ffffff;
+}
+
+.people-button.is-disabled,
+.people-button[disabled] {
+  color: #bbbbbb;
+  background: transparent;
+}
+
+.people-value {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8rpx;
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.people-value text:first-child {
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.payer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+}
+
+.payer-option {
+  width: calc((100% - 14rpx) / 2);
+  height: 68rpx;
+  padding: 0 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #f8f8f8;
+  color: #666666;
+  font-size: 25rpx;
+  font-weight: 800;
+}
+
+.payer-option.is-active {
+  background: #ff7f9f;
+  color: #ffffff;
+}
+
+.preference-card {
+  background: #fff0f4;
+  border-color: rgba(255, 127, 159, 0.18);
+}
+
+.preference-title {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.preference-desc {
+  margin-top: 8rpx;
+  color: #888888;
+  font-size: 25rpx;
+  line-height: 1.5;
+}
+
+.remark-input {
+  width: 100%;
+  min-height: 168rpx;
+  padding: 22rpx;
+  border-radius: 18rpx;
+  background: #f8f8f8;
+  color: #333333;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.quick-remarks {
+  margin-top: 18rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.quick-chip {
+  height: 58rpx;
+  padding: 0 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #fff8ed;
+  color: #b96d21;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.summary-row {
+  min-height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 26rpx;
+}
+
+.summary-row.total {
+  margin-top: 12rpx;
+  padding-top: 18rpx;
+  border-top: 1rpx solid #eeeeee;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.summary-row.total text:last-child {
+  color: #ff8a3d;
+}
+
+.checkout-submit-bar {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  min-height: 112rpx;
+  padding: 16rpx 18rpx 16rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1rpx solid rgba(238, 238, 238, 0.92);
+  box-shadow: 0 16rpx 44rpx rgba(38, 24, 28, 0.12);
+  z-index: 20;
+}
+
+.submit-total {
+  flex: 1;
+  min-width: 0;
+}
+
+.submit-label {
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.submit-price {
+  margin-top: 6rpx;
+  color: #ff8a3d;
+  font-size: 38rpx;
+  font-weight: 900;
+}
+
+.submit-button {
+  width: 210rpx;
+  flex: none;
+}

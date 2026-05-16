@@ -1,0 +1,207 @@
+.cart-page {
+  padding-bottom: 196rpx;
+}
+
+.cart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.clear-button {
+  width: 108rpx;
+  height: 58rpx;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #fff0f4;
+  color: #ff5f86;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.cart-list {
+  margin-top: 28rpx;
+}
+
+.cart-card {
+  margin-bottom: 20rpx;
+  padding: 22rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.cart-cover {
+  width: 128rpx;
+  height: 128rpx;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22rpx;
+  color: #ffffff;
+  font-size: 25rpx;
+  font-weight: 800;
+}
+
+.cart-cover.coral {
+  background: linear-gradient(135deg, #ff8d76, #ff5f86);
+}
+
+.cart-cover.amber {
+  background: linear-gradient(135deg, #ffbd72, #ff8a3d);
+}
+
+.cart-cover.rose {
+  background: linear-gradient(135deg, #ff9db5, #ff6f9d);
+}
+
+.cart-cover.sun {
+  background: linear-gradient(135deg, #ffd66e, #ffa447);
+}
+
+.cart-cover.moss {
+  background: linear-gradient(135deg, #9ccf9b, #5f9f78);
+}
+
+.cart-cover.berry {
+  background: linear-gradient(135deg, #d98cff, #ff7f9f);
+}
+
+.cart-cover.mint {
+  background: linear-gradient(135deg, #8bd8c1, #54b6a0);
+}
+
+.cart-cover.cream {
+  background: linear-gradient(135deg, #ffc983, #ff9f6e);
+}
+
+.cart-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.cart-name {
+  flex: 1;
+  min-width: 0;
+  color: #333333;
+  font-size: 31rpx;
+  font-weight: 700;
+}
+
+.remove-button {
+  flex: none;
+  color: #aaaaaa;
+  font-size: 24rpx;
+}
+
+.cart-price {
+  margin-top: 10rpx;
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.cart-bottom {
+  margin-top: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.line-total {
+  color: #ff6b6b;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.quantity-control {
+  flex: none;
+  height: 58rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 999rpx;
+  background: #fff5f7;
+  overflow: hidden;
+}
+
+.quantity-button {
+  width: 58rpx;
+  height: 58rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff5f86;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.quantity-button.is-plus {
+  background: #ff7f9f;
+  color: #ffffff;
+}
+
+.quantity-value {
+  min-width: 54rpx;
+  text-align: center;
+  color: #333333;
+  font-size: 27rpx;
+  font-weight: 700;
+}
+
+.taste-tip {
+  margin-top: 24rpx;
+  padding: 24rpx 28rpx;
+  color: #ff5f86;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.cart-total-bar {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  min-height: 112rpx;
+  padding: 16rpx 18rpx 16rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22rpx;
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16rpx 48rpx rgba(32, 18, 22, 0.14);
+  z-index: 20;
+}
+
+.total-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.total-label {
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.total-price {
+  margin-top: 6rpx;
+  color: #ff6b6b;
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.total-button {
+  width: 190rpx;
+  flex: none;
+}

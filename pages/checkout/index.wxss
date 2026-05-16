@@ -1,0 +1,140 @@
+.checkout-page {
+  padding-bottom: 68rpx;
+}
+
+.checkout-header {
+  margin-bottom: 28rpx;
+}
+
+.section-card,
+.summary-card {
+  margin-bottom: 20rpx;
+  padding: 26rpx 28rpx;
+}
+
+.section-title {
+  margin-bottom: 22rpx;
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.checkout-item {
+  min-height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.checkout-item + .checkout-item {
+  border-top: 1rpx solid #eeeeee;
+}
+
+.checkout-item-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.checkout-name {
+  color: #333333;
+  font-size: 27rpx;
+  font-weight: 600;
+}
+
+.checkout-count {
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.checkout-line-total {
+  flex: none;
+  color: #ff6b6b;
+  font-size: 27rpx;
+  font-weight: 800;
+}
+
+.people-picker {
+  height: 76rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 18rpx;
+  background: #f8f8f8;
+  color: #333333;
+  font-size: 27rpx;
+  font-weight: 600;
+}
+
+.picker-arrow {
+  color: #ff5f86;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.payer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+}
+
+.payer-option {
+  min-width: 142rpx;
+  height: 68rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #f8f8f8;
+  color: #666666;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.payer-option.is-active {
+  background: #ff7f9f;
+  color: #ffffff;
+}
+
+.remark-input {
+  width: 100%;
+  min-height: 168rpx;
+  padding: 22rpx;
+  border-radius: 18rpx;
+  background: #f8f8f8;
+  color: #333333;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.summary-row {
+  min-height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 26rpx;
+}
+
+.summary-row.total {
+  margin-top: 12rpx;
+  padding-top: 18rpx;
+  border-top: 1rpx solid #eeeeee;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.summary-row.total text:last-child {
+  color: #ff6b6b;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,95 @@
+<navigation-bar title="确认点餐" color="#333333" background="#ffffff"></navigation-bar>
+
+<scroll-view class="page-scroll" scroll-y type="list">
+  <view class="hm-page checkout-page">
+    <view class="checkout-header">
+      <view class="hm-page-title">确认点餐</view>
+      <view class="hm-page-subtitle">美味马上就安排～</view>
+    </view>
+
+    <block wx:if="{{isEmpty}}">
+      <view class="empty-state hm-card">
+        <view class="empty-mark">餐桌</view>
+        <view class="empty-title">还没有选择菜品</view>
+        <view class="empty-desc">先去菜单里挑几道吧</view>
+        <button class="hm-primary-button empty-action" bindtap="goMenu" hover-class="button-hover">去点餐</button>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="section-card hm-card">
+        <view class="section-title">订单菜品</view>
+        <block wx:for="{{cartList}}" wx:key="dishId" wx:for-item="dish">
+          <view class="checkout-item">
+            <view class="checkout-item-main">
+              <text class="checkout-name">{{dish.name}}</text>
+              <text class="checkout-count">x{{dish.count}}</text>
+            </view>
+            <view class="checkout-line-total">¥{{dish.lineTotal}}</view>
+          </view>
+        </block>
+      </view>
+
+      <view class="section-card hm-card">
+        <view class="section-title">用餐人数</view>
+        <picker mode="selector" range="{{peopleOptions}}" value="{{peopleIndex}}" bindchange="onPeopleChange">
+          <view class="people-picker">
+            <text>{{peopleCount}} 人</text>
+            <text class="picker-arrow">更改</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="section-card hm-card">
+        <view class="section-title">今天谁请客？</view>
+        <view class="payer-list">
+          <block wx:for="{{payerOptions}}" wx:key="*this" wx:for-item="option">
+            <button
+              class="payer-option {{payer === option ? 'is-active' : ''}}"
+              data-payer="{{option}}"
+              bindtap="selectPayer"
+              hover-class="button-hover"
+            >
+              {{option}}
+            </button>
+          </block>
+        </view>
+      </view>
+
+      <view class="section-card hm-card">
+        <view class="section-title">情侣备注</view>
+        <textarea
+          class="remark-input"
+          value="{{remark}}"
+          maxlength="120"
+          placeholder="比如：少辣，不要香菜，今天想吃甜一点～"
+          bindinput="onRemarkInput"
+        ></textarea>
+      </view>
+
+      <view class="summary-card hm-card">
+        <view class="summary-row">
+          <text>菜品数量</text>
+          <text>{{totalCount}} 件</text>
+        </view>
+        <view class="summary-row">
+          <text>用餐人数</text>
+          <text>{{peopleCount}} 人</text>
+        </view>
+        <view class="summary-row total">
+          <text>合计</text>
+          <text>¥{{totalPrice}}</text>
+        </view>
+      </view>
+
+      <button
+        class="hm-primary-button submit-button"
+        bindtap="submitOrder"
+        loading="{{submitting}}"
+        hover-class="button-hover"
+      >
+        确认下单
+      </button>
+    </block>
+  </view>
+</scroll-view>

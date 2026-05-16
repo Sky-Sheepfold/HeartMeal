@@ -1,0 +1,86 @@
+<navigation-bar title="我的餐桌" color="#333333" background="#ffffff"></navigation-bar>
+
+<scroll-view class="page-scroll" scroll-y type="list">
+  <view class="hm-page cart-page">
+    <view class="cart-header">
+      <view>
+        <view class="hm-page-title">我的餐桌</view>
+        <view class="hm-page-subtitle">看看你们选了哪些好吃的</view>
+      </view>
+      <button
+        wx:if="{{!isEmpty}}"
+        class="clear-button"
+        bindtap="clearCart"
+        hover-class="button-hover"
+      >
+        清空
+      </button>
+    </view>
+
+    <block wx:if="{{isEmpty}}">
+      <view class="empty-state hm-card">
+        <view class="empty-mark">餐桌</view>
+        <view class="empty-title">餐桌还是空的</view>
+        <view class="empty-desc">快去选点你们爱吃的吧</view>
+        <button class="hm-primary-button empty-action" bindtap="goMenu" hover-class="button-hover">去点餐</button>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="cart-list">
+        <block wx:for="{{cartList}}" wx:key="dishId" wx:for-item="dish">
+          <view class="cart-card hm-card">
+            <view class="cart-cover {{dish.tone}}">{{dish.cover}}</view>
+            <view class="cart-info">
+              <view class="cart-row">
+                <view class="cart-name">{{dish.name}}</view>
+                <button
+                  class="remove-button"
+                  data-id="{{dish.dishId}}"
+                  data-name="{{dish.name}}"
+                  bindtap="removeItem"
+                  hover-class="button-hover"
+                >
+                  删除
+                </button>
+              </view>
+              <view class="cart-price">¥{{dish.price}} / 份</view>
+              <view class="cart-bottom">
+                <view class="line-total">小计 ¥{{dish.lineTotal}}</view>
+                <view class="quantity-control">
+                  <button
+                    class="quantity-button"
+                    data-id="{{dish.dishId}}"
+                    bindtap="decrease"
+                    hover-class="button-hover"
+                  >
+                    −
+                  </button>
+                  <text class="quantity-value">{{dish.count}}</text>
+                  <button
+                    class="quantity-button is-plus"
+                    data-id="{{dish.dishId}}"
+                    bindtap="increase"
+                    hover-class="button-hover"
+                  >
+                    +
+                  </button>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="taste-tip hm-card">小提示：记得看看 TA 的口味哦～</view>
+    </block>
+  </view>
+</scroll-view>
+
+<view wx:if="{{!isEmpty}}" class="cart-total-bar">
+  <view class="total-copy">
+    <view class="total-label">合计</view>
+    <view class="total-price">¥{{totalPrice}}</view>
+  </view>
+  <button class="hm-primary-button total-button" bindtap="goCheckout" hover-class="button-hover">去下单</button>
+</view>

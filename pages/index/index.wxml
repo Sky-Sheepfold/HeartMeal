@@ -1,7 +1,78 @@
-<!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    Weixin
+<navigation-bar title="情侣餐桌" back="{{false}}" color="#333333" background="#fff5f7"></navigation-bar>
+
+<scroll-view class="page-scroll" scroll-y type="list">
+  <view class="hm-page index-page">
+    <view class="hero">
+      <view class="hero-copy">
+        <view class="hero-kicker">HeartMeal</view>
+        <view class="hm-page-title">今天想和 TA 吃点什么？</view>
+        <view class="hm-page-subtitle">两个人的快乐菜单，甜甜的一餐从这里开始</view>
+      </view>
+      <view class="hero-token">2 人餐桌</view>
+    </view>
+
+    <view class="banner hm-card">
+      <view class="banner-title">两个人的快乐菜单</view>
+      <view class="banner-desc">从推荐菜开始，也可以按主食、小吃、饮品慢慢挑。</view>
+    </view>
+
+    <scroll-view class="category-tabs" scroll-x enable-flex>
+      <block wx:for="{{categories}}" wx:key="*this">
+        <view
+          class="category-tab {{activeCategory === item ? 'is-active' : ''}}"
+          data-category="{{item}}"
+          bindtap="switchCategory"
+        >
+          {{item}}
+        </view>
+      </block>
+    </scroll-view>
+
+    <view class="dish-list">
+      <block wx:for="{{dishList}}" wx:key="id" wx:for-item="dish">
+        <view class="dish-card hm-card">
+          <view class="dish-cover {{dish.tone}}">
+            <text>{{dish.cover}}</text>
+          </view>
+          <view class="dish-info">
+            <view class="dish-head">
+              <text class="dish-name">{{dish.name}}</text>
+              <text class="dish-spicy">{{dish.spicy}}</text>
+            </view>
+            <view class="dish-desc">{{dish.desc}}</view>
+            <view class="dish-tags">
+              <block wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="tag">
+                <text class="dish-tag">{{tag}}</text>
+              </block>
+            </view>
+            <view class="dish-bottom">
+              <view class="dish-price">¥{{dish.price}}</view>
+              <view class="dish-actions">
+                <text wx:if="{{dish.count > 0}}" class="dish-count">x{{dish.count}}</text>
+                <button
+                  class="add-button"
+                  data-id="{{dish.id}}"
+                  bindtap="addToCart"
+                  hover-class="button-hover"
+                >
+                  +
+                </button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
 </scroll-view>
+
+<view class="cart-bar {{totalCount > 0 ? 'is-ready' : ''}}">
+  <view class="cart-summary" bindtap="goCart">
+    <view class="cart-mark">餐桌</view>
+    <view class="cart-copy">
+      <view class="cart-title">{{cartText}}</view>
+      <view class="cart-desc">{{cartDesc}}</view>
+    </view>
+  </view>
+  <button class="cart-action" bindtap="goCheckout" hover-class="button-hover">去结算</button>
+</view>

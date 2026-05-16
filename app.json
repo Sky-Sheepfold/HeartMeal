@@ -1,10 +1,14 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/cart/index",
+    "pages/checkout/index",
+    "pages/orders/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "backgroundColor": "#F8F8F8"
   },
   "style": "v2",
   "renderer": "skyline",

@@ -1,0 +1,114 @@
+.orders-page {
+  padding-bottom: 68rpx;
+}
+
+.orders-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.clear-button {
+  width: 108rpx;
+  height: 58rpx;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #fff0f4;
+  color: #ff5f86;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.order-list {
+  margin-top: 28rpx;
+}
+
+.order-card {
+  margin-bottom: 22rpx;
+  padding: 26rpx 28rpx;
+}
+
+.order-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.order-time {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.order-id {
+  margin-top: 8rpx;
+  color: #aaaaaa;
+  font-size: 22rpx;
+}
+
+.order-status {
+  flex: none;
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #fff0f4;
+  color: #ff5f86;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.order-items {
+  margin-top: 22rpx;
+  padding: 18rpx 0;
+  border-top: 1rpx solid #eeeeee;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.order-item {
+  min-height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  color: #666666;
+  font-size: 25rpx;
+}
+
+.order-remark {
+  margin-top: 18rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 18rpx;
+  background: #fff5f7;
+  color: #ff5f86;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.order-bottom {
+  margin-top: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.payer {
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.order-total {
+  margin-top: 6rpx;
+  color: #ff6b6b;
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.reorder-button {
+  min-width: 176rpx;
+  flex: none;
+}

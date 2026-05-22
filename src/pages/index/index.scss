@@ -22,12 +22,14 @@
 }
 
 .taste-entry {
-  width: 92rpx;
+  min-width: 104rpx;
   height: 58rpx;
+  padding: 0 18rpx;
   flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8rpx;
   border-radius: 999rpx;
   background: #ffffff;
   color: #666666;
@@ -90,6 +92,7 @@
   font-size: 26rpx;
   font-weight: 700;
   border: 1rpx solid #eeeeee;
+  gap: 8rpx;
 }
 
 .category-tab.is-active {

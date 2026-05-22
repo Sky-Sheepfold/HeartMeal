@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { Button, ScrollView, View } from '@tarojs/components'
+import { HeartMealIcon } from '@/components/Icon'
 import { CartLineItem } from '@/types'
 import {
   calcTotalCount,
@@ -113,7 +114,9 @@ export default function CartPage() {
 
           {isEmpty ? (
             <View className='empty-state hm-card'>
-              <View className='empty-mark'>餐桌</View>
+              <View className='empty-mark'>
+                <HeartMealIcon name='empty' size='lg' />
+              </View>
               <View className='empty-title'>餐桌还是空的</View>
               <View className='empty-desc'>快去选点你们爱吃的吧</View>
               <Button className='hm-primary-button empty-action' hoverClass='button-hover' onClick={goMenu}>
@@ -168,7 +171,10 @@ export default function CartPage() {
               </View>
 
               <View className='taste-tip hm-card'>
-                <View className='taste-title'>口味提醒</View>
+                <View className='taste-title'>
+                  <HeartMealIcon name='taste' size='sm' />
+                  <View>口味提醒</View>
+                </View>
                 <View className='taste-desc'>下单前可以在备注里写下 TA 的口味，比如少辣、不吃香菜。</View>
               </View>
             </>

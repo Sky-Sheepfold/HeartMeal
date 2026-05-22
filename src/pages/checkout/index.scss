@@ -20,6 +20,13 @@
   font-weight: 800;
 }
 
+.section-title-with-icon,
+.preference-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
 .checkout-item {
   min-height: 68rpx;
   display: flex;

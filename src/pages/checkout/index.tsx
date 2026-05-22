@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { Button, ScrollView, Text, Textarea, View } from '@tarojs/components'
+import { HeartMealIcon } from '@/components/Icon'
 import { CartLineItem, Payer } from '@/types'
 import {
   calcTotalCount,
@@ -120,7 +121,10 @@ export default function CheckoutPage() {
           ) : (
             <>
               <View className='section-card hm-card'>
-                <View className='section-title'>订单菜品</View>
+                <View className='section-title section-title-with-icon'>
+                  <HeartMealIcon name='receipt' size='sm' />
+                  <Text>订单菜品</Text>
+                </View>
                 {cartList.map((dish) => (
                   <View key={dish.dishId} className='checkout-item'>
                     <View className='checkout-item-main'>
@@ -133,7 +137,10 @@ export default function CheckoutPage() {
               </View>
 
               <View className='section-card hm-card'>
-                <View className='section-title'>用餐人数</View>
+                <View className='section-title section-title-with-icon'>
+                  <HeartMealIcon name='person-two' size='sm' />
+                  <Text>用餐人数</Text>
+                </View>
                 <View className='people-stepper'>
                   <Button
                     className={`people-button ${peopleCount <= 1 ? 'is-disabled' : ''}`}
@@ -175,12 +182,18 @@ export default function CheckoutPage() {
               </View>
 
               <View className='preference-card hm-card'>
-                <View className='preference-title'>口味提醒</View>
+                <View className='preference-title'>
+                  <HeartMealIcon name='taste' size='sm' />
+                  <Text>口味提醒</Text>
+                </View>
                 <View className='preference-desc'>可以在备注里写下 TA 的口味，比如少辣、不吃香菜。</View>
               </View>
 
               <View className='section-card hm-card'>
-                <View className='section-title'>情侣备注</View>
+                <View className='section-title section-title-with-icon'>
+                  <HeartMealIcon name='note' size='sm' />
+                  <Text>情侣备注</Text>
+                </View>
                 <Textarea
                   className='remark-input'
                   value={remark}

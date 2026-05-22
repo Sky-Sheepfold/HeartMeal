@@ -213,6 +213,9 @@
 }
 
 .taste-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
   color: #333333;
   font-size: 28rpx;
   font-weight: 800;

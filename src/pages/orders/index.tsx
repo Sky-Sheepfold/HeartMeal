@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { Button, ScrollView, Text, View } from '@tarojs/components'
+import { HeartMealIcon } from '@/components/Icon'
 import { CartItem, Order, OrderView } from '@/types'
 import { getCart, saveCart } from '@/utils/cart'
 import { clearOrders, getOrders } from '@/utils/order'
@@ -108,7 +109,9 @@ export default function OrdersPage() {
 
         {isEmpty ? (
           <View className='empty-state hm-card'>
-            <View className='empty-mark'>记录</View>
+            <View className='empty-mark'>
+              <HeartMealIcon name='orders' size='lg' />
+            </View>
             <View className='empty-title'>还没有一起吃过的记录哦</View>
             <View className='empty-desc'>去点第一餐，给今天留一条好吃的回忆</View>
             <Button className='hm-primary-button empty-action' hoverClass='button-hover' onClick={goMenu}>
@@ -162,6 +165,7 @@ export default function OrdersPage() {
                       <View className='order-total'>¥{order.totalPrice}</View>
                     </View>
                     <Button className='hm-secondary-button reorder-button' hoverClass='button-hover' onClick={() => reorder(order)}>
+                      <HeartMealIcon name='reorder' size='sm' />
                       再来一单
                     </Button>
                   </View>

@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { Button, ScrollView, Text, View } from '@tarojs/components'
+import { HeartMealIcon } from '@/components/Icon'
 import { categories, menuList } from '@/data/menu'
+import { HeartMealIconName } from '@/assets/icons'
 import { CartItem, Dish } from '@/types'
 import {
   addDishToCart,
@@ -14,6 +16,15 @@ import './index.scss'
 
 interface DishView extends Dish {
   count: number
+}
+
+const categoryIconMap: Record<string, HeartMealIconName> = {
+  推荐: 'heart',
+  主食: 'rice',
+  小吃: 'snack',
+  饮品: 'drink',
+  甜品: 'dessert',
+  套餐: 'dish'
 }
 
 function isRecommendedDish(dish: Dish): boolean {
@@ -110,7 +121,10 @@ export default function IndexPage() {
               <View className='hm-page-title'>今天想和 TA 吃点什么？</View>
               <View className='hm-page-subtitle'>先挑几道喜欢的，再慢慢决定谁请客。</View>
             </View>
-            <View className='taste-entry'>2人</View>
+            <View className='taste-entry'>
+              <HeartMealIcon name='person-two' size='sm' />
+              <Text>2人</Text>
+            </View>
           </View>
 
           <View className='menu-brief hm-card'>
@@ -132,6 +146,7 @@ export default function IndexPage() {
                 className={`category-tab ${activeCategory === category ? 'is-active' : ''}`}
                 onClick={() => setActiveCategory(category)}
               >
+                <HeartMealIcon name={categoryIconMap[category] || 'menu'} size='sm' />
                 {category}
               </View>
             ))}
@@ -188,7 +203,9 @@ export default function IndexPage() {
 
       <View className={`cart-bar ${totalCount > 0 ? 'is-ready' : 'is-empty'}`}>
         <View className='cart-summary' onClick={goCart}>
-          <View className='cart-mark'>{totalCount > 0 ? totalCount : '餐桌'}</View>
+          <View className='cart-mark'>
+            {totalCount > 0 ? <Text>{totalCount}</Text> : <HeartMealIcon name='cart' size='md' />}
+          </View>
           <View className='cart-copy'>
             <View className='cart-title'>{cartText}</View>
             <View className='cart-desc'>{cartDesc}</View>

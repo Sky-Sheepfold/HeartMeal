@@ -32,6 +32,7 @@ private.config.json
 Thumbs.db
 .idea/
 .vscode/
+.superpowers/
 
 # Test and coverage output
 coverage/
